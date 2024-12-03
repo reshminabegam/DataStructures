@@ -1,0 +1,473 @@
+'''LINKED-LISTS(Singly,Doubly,Circular)'''
+
+#create sll and display
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class SLL:
+    def __init__(self):
+        self.head=None 
+    def display(self):
+        if self.head is None:
+            print('empty')
+        else:
+            temp=self.head
+            while temp:
+                print(temp.data,"-->",end=" ")
+                temp=temp.next
+L=SLL()
+n=Node(10)
+L.head=n
+n1=Node(20)
+n.next=n1
+n2=Node(30)
+n1.next=n2
+L.display()
+
+
+
+
+
+#insertion at begin,end and given pos in sll
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class SLL:
+    def __init__(self):
+        self.head=None
+        
+    def insert_beginning(self,data):
+        nb=Node(data)
+        nb.next=self.head
+        self.head=nb
+        
+    def insert_end(self,data):
+        ne=Node(data)
+        temp=self.head
+        while temp.next:
+            temp=temp.next
+        temp.next=ne
+        
+    def insert_pos(self,pos,data):
+        np=Node(data)
+        temp=self.head
+        for i in range(pos-1):
+            temp=temp.next
+        np.data=data
+        np.next=temp.next
+        temp.next=np
+        
+    def display(self):
+        if self.head is None:
+            print('empty')
+        else:
+            temp=self.head
+            while temp:
+                print(temp.data,"-->",end=" ")
+                temp=temp.next
+L=SLL()
+n=Node(10)
+L.head=n
+n1=Node(20)
+n.next=n1
+n2=Node(30)
+n1.next=n2
+n3=Node(40)
+n2.next=n3
+n4=Node(50)
+n3.next=n4
+L.insert_beginning(5)
+L.insert_end(60)
+L.insert_pos(4,25)
+L.display()
+
+
+
+
+
+#deletion at beg,end and given position in sll
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class SLL:
+    def __init__(self):
+        self.head=None
+    def display(self):
+        if self.head is None:
+            print('empty')
+        else:
+            temp=self.head
+            while temp:
+                print(temp.data,"->",end=" ")
+                temp=temp.next
+    def del_beg(self):
+        temp=self.head
+        self.head=temp.next
+        temp.next=None
+        
+    def del_end(self):
+        temp=self.head.next
+        prev=self.head
+        while temp.next is not None:
+            temp=temp.next
+            prev=prev.next
+        prev.next=None
+    def del_pos(self,pos):
+        temp=self.head.next
+        prev=self.head
+        for i in range(1,pos-1):
+            temp=temp.next
+            prev=prev.next
+        prev.next=temp.next
+        temp.next=None   
+L=SLL()
+n=Node(10)
+L.head=n
+n1=Node(20)
+n.next=n1
+n2=Node(30)
+n1.next=n2
+n3=Node(40)
+n2.next=n3
+n4=Node(50)
+n3.next=n4
+n5=Node(60)
+n4.next=n5
+n6=Node(70)
+n5.next=n6
+n7=Node(80)
+n6.next=n7
+L.del_beg()
+L.del_end()
+L.del_pos(1)
+L.display()
+
+
+
+
+
+#rotate the sll in given pos
+class Node:
+    def __init__(self,data):
+class SLL:
+    def __init__(self):
+        self.head=None
+        
+    def delete_beg(self):
+        temp=self.head 
+        self.head=temp.next
+        temp.next=None
+    
+    def delete_end(self):
+        temp=self.head.next
+        prev=self.head 
+        while temp.next:
+            temp=temp.next
+            prev=prev.next
+        prev.next=None
+    
+    def delete_pos(self,pos):
+        temp=self.head.next 
+        prev=self.head 
+        for i in range(1,pos-1):
+            temp=temp.next
+            prev=prev.next
+        prev.next=temp.next
+        temp.next=None
+    
+    def display(self):
+        if self.head is None:
+            print('empty')
+        else:
+            temp=self.head 
+            while temp:
+                print(temp.data,"->",end=" ")
+                temp=temp.next
+                
+    
+L=SLL()
+n=Node(10)
+L.head=n
+n1=Node(20)
+n.next=n1
+n2=Node(30)
+n1.next=n2
+n3=Node(40)
+n2.next=n3
+n4=Node(50)
+n3.next=n4
+n5=Node(60)
+n4.next=n5
+n6=Node(70)
+n5.next=n6
+n7=Node(80)
+n6.next=n7
+L.delete_beg()
+L.delete_end()
+L.delete_pos()
+L.display()
+
+
+
+
+#create and display dll
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.prev=None
+        self.next=None
+class DLL:
+    def __init__(self):
+        self.head=None
+    def display(self):
+        if self.head is None:
+            print('empty')
+        else:
+            n=self.head
+            while n:
+                print(n.data,"-->",end=" ")
+                n=n.next
+L=DLL()
+n1=Node(10)
+L.head=n1
+n2=Node(20)
+n1.next=n2
+n2.prev=n1
+n3=Node(30)
+n2.next=n3
+n3.prev=n2
+n4=Node(40)
+n3.next=n4
+n4.prev=n3
+L.display()
+
+
+
+
+
+#insertion at begin,end and given pos in dll
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.prev=None
+        self.next=None
+class DLL:
+    def __init__(self):
+        self.head=None
+    def display(self):
+        if self.head is None:
+            print('empty')
+        else:
+            temp=self.head
+            while temp:
+                print(temp.data,end=" ")
+                temp=temp.next
+    def insert_beg(self,data):
+        n=Node(data)
+        temp=self.head
+        temp.prev=n
+        n.next=temp
+        self.head=n
+    
+    def insert_end(self,data):
+        n=Node(data)
+        temp=self.head
+        while temp.next is not None:
+            temp=temp.next
+        temp.next=n
+        n.prev=temp
+    def insert_pos(self,pos,data):
+        n=Node(data)
+        temp=self.head
+        for i in range(1,pos-1):
+            temp=temp.next
+        n.prev=temp
+        n.next=temp.next
+        temp.next.prev=n
+        temp.next=n     
+L=DLL()
+n1=Node(10)
+L.head=n1
+n2=Node(20)
+n1.next=n2
+n2.prev=n1
+n3=Node(30)
+n2.next=n3
+n3.prev=n2
+n4=Node(40)
+n3.next=n4
+n4.prev=n3
+L.insert_beg(5)
+L.insert_end(50)
+L.insert_pos(4,25)
+L.display()
+
+
+
+
+
+#deletion at beg,end and given pos in dll
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.prev=None
+        self.next=None
+class DLL:
+    def __init__(self):
+        self.head=None
+    def display(self):
+        if self.head is None:
+            print('empty')
+        else:
+            n=self.head
+            while n:
+                print(n.data,end=" ")
+                n=n.next
+    def delete_beg(self):
+        temp=self.head
+        self.head=temp.next
+        temp.next=None
+        self.head.prev=None
+
+    def delete_end(self):
+       temp=self.head.next
+       before=self.head
+       while temp.next is not None:
+           temp=temp.next
+           before=before.next
+       before.next=None
+       temp.prev=None
+    def delete_pos(self,pos):
+        temp=self.head.next
+        before=self.head
+        for i in range(1,pos-1):
+            temp=temp.next
+            before=before.next
+        before.next=temp.next
+        temp.next.prev=before
+        temp.prev=None
+        temp.next=None
+            
+    
+L=DLL()
+n1=Node(10)
+L.head=n1
+n2=Node(20)
+n1.next=n2
+n2.prev=n1
+n3=Node(30)
+n2.next=n3
+n3.prev=n2
+n4=Node(40)
+n3.next=n4
+n4.prev=n3
+n5=Node(50)
+n4.next=n5
+n5.prev=n4
+L.delete_pos(3)
+L.display()
+
+
+
+
+#create and display cll
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class CLL:
+    def __init__(self):
+        self.head=None
+        self.tail=None
+    def display(self):
+        if self.head is None:
+            print('empty')
+        else:
+            temp=self.head
+            print(temp.data,"->",end=" ")
+            while temp.next!=self.head:
+                temp=temp.next
+                print(temp.data,"->",end=" ") 
+            print(temp.next.data) 
+L=CLL()
+n1=Node(10)
+L.head=n1
+L.tail=n1
+L.tail.next=L.head
+n2=Node(20)
+L.tail.next=n2
+L.tail=n2
+L.tail.next=L.head
+n3=Node(30)
+L.tail.next=n3
+L.tail=n3
+L.tail.next=L.head
+n4=Node(40)
+L.tail.next=n4
+L.tail=n4
+L.tail.next=L.head
+L.display()
+
+
+
+
+
+#insert node at beg,end & given pos in cll
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None 
+class CLL:
+    def __init__(self):
+        self.head=None 
+        self.tail=None 
+    def display(self):
+        if self.head is None:
+            print('empty')
+        else:
+            temp=self.head
+            print(temp.data,"->",end=" ")
+            while temp.next!=self.head:
+                temp=temp.next
+                print(temp.data,"->",end=" ")
+            print(temp.next.data)
+    def add_beg(self,x):
+        new=Node(x)
+        if self.head is None:
+            self.head=new
+            self.tail=new
+            self.tail.next=self.head
+        else:
+            new.next=self.head
+            tail.next=new
+            self.head=new
+    def add_end(self,x):
+        new=Node(x)
+        if self.head is None:
+            self.head=new
+            self.tail=new
+            self.tail.next=self.head
+        else:
+            self.tail.next=new
+            self.tail=new
+            self.tail.next=self.head
+    def add_pos(self,pos,x):
+        new=Node(x)
+        if pos==1:
+            add_begin(x)
+        else:
+            temp=self.head
+            for i in range(1,pos-1):
+                temp=temp.next
+            new.next=temp.next
+            temp.next=new
+    
+L=CLL()
+L.add_beg(10)
+L.add_end(20)
+L.add_pos(3,30)
+L.display()
